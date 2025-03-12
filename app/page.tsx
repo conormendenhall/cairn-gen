@@ -38,6 +38,7 @@ export default function Home() {
   const [vice, setVice] = useState<string | null>(null);
   const [speech, setSpeech] = useState<string | null>(null);
   const [background, setBackground] = useState<string | null>(null);
+  const [age, setAge] = useState<number | null>(null);
 
   const rollDie = (sides: number): number => {
     return Math.floor(Math.random() * sides) + 1;
@@ -98,6 +99,10 @@ export default function Home() {
     setBackground(Backgrounds[roll]);
   };
 
+  const rollAge = (): void => {
+    setAge(rollDie(20) + rollDie(20) + 10);
+  };
+
   return (
     <div className="min-h-screen max-w-[30rem] m-auto items-center">
       <section>
@@ -108,29 +113,19 @@ export default function Home() {
             className="grid grid-flow-row grid-cols-4 items-center gap-2"
           >
             <div>
-              <button onClick={() => rollHitProtection()}>
-                HP
-              </button>
-              <p>
-                {hitProtection && `${hitProtection}`}
-              </p>
+              <button onClick={() => rollHitProtection()}>HP</button>
+              <p>{hitProtection && `${hitProtection}`}</p>
             </div>
             <div>
-              <button onClick={() => rollStrength()}>
-                STR
-              </button>
+              <button onClick={() => rollStrength()}>STR</button>
               <p>{strength && `${strength}`}</p>
             </div>
             <div>
-              <button onClick={() => rollDexterity()}>
-                DEX
-              </button>
+              <button onClick={() => rollDexterity()}>DEX</button>
               <p>{dexterity && `${dexterity}`}</p>
             </div>
             <div>
-              <button onClick={() => rollWillpower()}>
-                WIL
-              </button>
+              <button onClick={() => rollWillpower()}>WIL</button>
               <p>{willpower && `${willpower}`}</p>
             </div>
           </div>
@@ -195,6 +190,12 @@ export default function Home() {
           </button>
           <p className="px-4 py-2">{vice}</p>
         </div>
+        <div>
+          <button onClick={() => rollAge()} className="w-1/2 text-left">
+            Age
+          </button>
+          <p className="px-4 py-2">{age}</p>
+        </div>
         <button
           className={`${jacquard.className} text-[3rem]`}
           onClick={() => {
@@ -212,6 +213,7 @@ export default function Home() {
             rollClothing();
             rollVirtue();
             rollVice();
+            rollAge();
           }}
         >
           Randomize
