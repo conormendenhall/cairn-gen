@@ -11,6 +11,11 @@
   font-size: small;
 }
 
+.primary {
+  color: var(--background-a);
+  background-color: var(--primary-a);
+}
+
 body {
   color: var(--foreground);
   background: var(--background-a);
@@ -46,7 +51,7 @@ button {
 
   p {
     text-align: center;
-    margin: .5rem;
+    margin: 0.5rem;
   }
 }
 
@@ -55,6 +60,6 @@ button {
   background-color: var(--background-b);
 
   p {
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
   }
 }
