@@ -127,38 +127,155 @@ export default function Home() {
 
   return (
     <div className="min-h-screen m-2">
-      <div className="grid sm:grid-cols-2 gap-2 items-start sm:m-auto sm:max-w-[48rem]">
-        <h1 className="text-[3rem] sm:col-span-2">{name}</h1>
-        <section className="grid gap-2">
+      <div className="grid sm:grid-cols-2 items-start gap-2 m-auto max-w-[24rem] sm:max-w-[48rem]">
+        <h1 className="text-[3rem]">{name}</h1>
+        <button
+          className={`${jacquard.className} text-[3rem]`}
+          onClick={() => {
+            rollBackground();
+            rollHitProtection();
+            rollStrength();
+            rollDexterity();
+            rollWillpower();
+            rollPhysique();
+            rollSkin();
+            rollHair();
+            rollFace();
+            rollSpeech();
+            rollClothing();
+            rollVirtue();
+            rollVice();
+            rollAge();
+          }}
+        >
+          Randomize
+        </button>
+        <section id="traits" className="grid gap-2">
           <div
             id="abilities"
             className="grid grid-flow-row grid-cols-4 items-center gap-2"
           >
             {hitProtection && (
               <div>
-                <button onClick={() => rollHitProtection()}>HP</button>
-                <p>{hitProtection && `${hitProtection}`}</p>
+                <button className="w-full" onClick={() => rollHitProtection()}>
+                  HP
+                </button>
+                <p className="text-center bg-[--background-b]">
+                  {hitProtection && `${hitProtection}`}
+                </p>
               </div>
             )}
             {strength && (
               <div>
-                <button onClick={() => rollStrength()}>STR</button>
-                <p>{strength && `${strength}`}</p>
+                <button className="w-full" onClick={() => rollStrength()}>
+                  STR
+                </button>
+                <p className="text-center bg-[--background-b]">
+                  {strength && `${strength}`}
+                </p>
               </div>
             )}
             {dexterity && (
               <div>
-                <button onClick={() => rollDexterity()}>DEX</button>
-                <p>{dexterity && `${dexterity}`}</p>
+                <button className="w-full" onClick={() => rollDexterity()}>
+                  DEX
+                </button>
+                <p className="text-center bg-[--background-b]">
+                  {dexterity && `${dexterity}`}
+                </p>
               </div>
             )}
             {willpower && (
               <div>
-                <button onClick={() => rollWillpower()}>WIL</button>
-                <p>{willpower && `${willpower}`}</p>
+                <button className="w-full" onClick={() => rollWillpower()}>
+                  WIL
+                </button>
+                <p className="text-center bg-[--background-b]">
+                  {willpower && `${willpower}`}
+                </p>
               </div>
             )}
           </div>
+          {physique && (
+            <div className="flex bg-[--background-b]">
+              <button
+                onClick={() => rollPhysique()}
+                className="w-1/2 text-left"
+              >
+                Physique
+              </button>
+              <p className="px-4 py-2">{physique}</p>
+            </div>
+          )}
+          {skin && (
+            <div className="flex bg-[--background-b]">
+              <button onClick={() => rollSkin()} className="w-1/2 text-left">
+                Skin
+              </button>
+              <p className="px-4 py-2">{skin}</p>
+            </div>
+          )}
+          {hair && (
+            <div className="flex bg-[--background-b]">
+              <button onClick={() => rollHair()} className="w-1/2 text-left">
+                Hair
+              </button>
+              <p className="px-4 py-2">{hair}</p>
+            </div>
+          )}
+          {face && (
+            <div className="flex bg-[--background-b]">
+              <button onClick={() => rollFace()} className="w-1/2 text-left">
+                Face
+              </button>
+              <p className="px-4 py-2">{face}</p>
+            </div>
+          )}
+          {speech && (
+            <div className="flex bg-[--background-b]">
+              <button onClick={() => rollSpeech()} className="w-1/2 text-left">
+                Speech
+              </button>
+              <p className="px-4 py-2">{speech}</p>
+            </div>
+          )}
+          {clothing && (
+            <div className="flex bg-[--background-b]">
+              <button
+                onClick={() => rollClothing()}
+                className="w-1/2 text-left"
+              >
+                Clothing
+              </button>
+              <p className="px-4 py-2">{clothing}</p>
+            </div>
+          )}
+          {virtue && (
+            <div className="flex bg-[--background-b]">
+              <button onClick={() => rollVirtue()} className="w-1/2 text-left">
+                Virtue
+              </button>
+              <p className="px-4 py-2">{virtue}</p>
+            </div>
+          )}
+          {vice && (
+            <div className="flex bg-[--background-b]">
+              <button onClick={() => rollVice()} className="w-1/2 text-left">
+                Vice
+              </button>
+              <p className="px-4 py-2">{vice}</p>
+            </div>
+          )}
+          {age && (
+            <div className="flex bg-[--background-b]">
+              <button onClick={() => rollAge()} className="w-1/2 text-left">
+                Age
+              </button>
+              <p className="px-4 py-2">{age}</p>
+            </div>
+          )}
+        </section>
+        <section className="grid justify-start gap-2">
           {background && (
             <div className="flex bg-[--background-b]">
               <button
@@ -188,107 +305,6 @@ export default function Home() {
               <p className="p-2">{gold}</p>
             </div>
           )}
-        </section>
-        <section id="traits" className="grid gap-2">
-          {physique && (
-            <div>
-              <button
-                onClick={() => rollPhysique()}
-                className="w-1/2 text-left"
-              >
-                Physique
-              </button>
-              <p className="px-4 py-2">{physique}</p>
-            </div>
-          )}
-          {skin && (
-            <div>
-              <button onClick={() => rollSkin()} className="w-1/2 text-left">
-                Skin
-              </button>
-              <p className="px-4 py-2">{skin}</p>
-            </div>
-          )}
-          {hair && (
-            <div>
-              <button onClick={() => rollHair()} className="w-1/2 text-left">
-                Hair
-              </button>
-              <p className="px-4 py-2">{hair}</p>
-            </div>
-          )}
-          {face && (
-            <div>
-              <button onClick={() => rollFace()} className="w-1/2 text-left">
-                Face
-              </button>
-              <p className="px-4 py-2">{face}</p>
-            </div>
-          )}
-          {speech && (
-            <div>
-              <button onClick={() => rollSpeech()} className="w-1/2 text-left">
-                Speech
-              </button>
-              <p className="px-4 py-2">{speech}</p>
-            </div>
-          )}
-          {clothing && (
-            <div>
-              <button
-                onClick={() => rollClothing()}
-                className="w-1/2 text-left"
-              >
-                Clothing
-              </button>
-              <p className="px-4 py-2">{clothing}</p>
-            </div>
-          )}
-          {virtue && (
-            <div>
-              <button onClick={() => rollVirtue()} className="w-1/2 text-left">
-                Virtue
-              </button>
-              <p className="px-4 py-2">{virtue}</p>
-            </div>
-          )}
-          {vice && (
-            <div>
-              <button onClick={() => rollVice()} className="w-1/2 text-left">
-                Vice
-              </button>
-              <p className="px-4 py-2">{vice}</p>
-            </div>
-          )}
-          {age && (
-            <div>
-              <button onClick={() => rollAge()} className="w-1/2 text-left">
-                Age
-              </button>
-              <p className="px-4 py-2">{age}</p>
-            </div>
-          )}
-          <button
-            className={`${jacquard.className} text-[3rem]`}
-            onClick={() => {
-              rollBackground();
-              rollHitProtection();
-              rollStrength();
-              rollDexterity();
-              rollWillpower();
-              rollPhysique();
-              rollSkin();
-              rollHair();
-              rollFace();
-              rollSpeech();
-              rollClothing();
-              rollVirtue();
-              rollVice();
-              rollAge();
-            }}
-          >
-            Randomize
-          </button>
         </section>
       </div>
     </div>

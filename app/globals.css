@@ -42,24 +42,6 @@ button {
   }
 }
 
-#abilities > div {
-  background-color: var(--background-b);
-
-  button {
-    width: 100%;
-  }
-
-  p {
-    text-align: center;
-    margin: 0.5rem;
-  }
-}
-
-#traits > div {
-  display: flex;
-  background-color: var(--background-b);
-
-  p {
-    padding: 0.5rem 1rem;
-  }
+#traits p {
+  padding: 0.5rem 1rem;
 }
